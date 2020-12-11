@@ -1,0 +1,29 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+    @font-face {
+        font-family: "SFPro Rounded";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/59bee7c1be9708000b486107/SF-Pro-Rounded-Heavy.otf")
+        format("opentype");
+    }
+
+    @font-face {
+        font-family: "SFPro Rounded";
+        font-style: normal;
+        font-weight: 700;
+        src: url("https://anima-uploads.s3.amazonaws.com/5c5d4a95067ddd000d055b5d/SF-Pro-Rounded-Bold.otf")
+        format("opentype");
+    }
+
+    @font-face {
+        font-family: "SFPro Rounded";
+        font-style: normal;
+        font-weight: 400;
+        src: url("https://anima-uploads.s3.amazonaws.com/5cad0730943c9b000ade0477/SF-Pro-Rounded-Regular.otf")
+        format("opentype");
+    }
+}
