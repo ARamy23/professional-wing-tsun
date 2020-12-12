@@ -41,7 +41,7 @@
                 </li>
 
                 <li>
-                    {{ __('Stretching') }}
+                    {{ __('Stretching your legs') }}
                 </li>
             </ul>
         </div>

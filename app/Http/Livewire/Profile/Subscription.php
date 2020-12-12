@@ -10,4 +10,9 @@ class Subscription extends Component
     {
         return view('livewire.profile.subscription');
     }
+
+    public function submit()
+    {
+        $this->emit('show');
+    }
 }

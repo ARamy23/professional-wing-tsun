@@ -27,7 +27,11 @@
                 {{ __('Where can you find the branch?') }}
             </p>
 
-            <a href="">
+            <a href="https://goo.gl/maps/vmvKL6WEAzxzq5ac7">
+                <p class="p-4 font-bold bg-green-400 w-full rounded-full text-center text-white">
+                    Navigate to the Dojo
+                </p>
+            </a>
 
             </a>
         </div>

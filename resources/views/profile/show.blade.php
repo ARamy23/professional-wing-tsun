@@ -17,11 +17,12 @@
             @livewire('profile.grade')
             <x-jet-section-border/>
 
+            @livewire('profile.certified-grade')
+            <x-jet-section-border/>
+
             @livewire('profile.branch')
             <x-jet-section-border/>
 
-            @livewire('profile.certified-grade')
-            <x-jet-section-border/>
 
             @livewire('profile.subscription')
             <x-jet-section-border/>
