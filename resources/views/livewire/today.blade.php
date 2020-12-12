@@ -108,58 +108,48 @@
         </x-slot>
     </x-jet-dialog-modal>
 
-    @foreach($days as $day)
+    <div
+        wire:ignore
+        class="flex flex-col sm:flex-col overflow-auto md:overflow-scroll w-screen object-fill">
+        <h2 class='p-4 m-2 w-screen h-max place-self-center bg-blue-400 shadow-blue rounded-2xl text-center text-white font-bold'>
+            {{$day->name}}
+        </h2>
         <div
-            wire:ignore
-            class="flex flex-col sm:flex-col overflow-auto md:overflow-scroll w-screen object-fill">
-            <h2 class='p-4 m-2 w-screen h-max place-self-center bg-blue-400 shadow-blue rounded-2xl text-center text-white font-bold'>
-                {{$day->name}}
-                @if(\Carbon\Carbon::parse($day->date)->isToday())
-                    (Today)
-                @endif
-            </h2>
-            <div
-                class="flex flex-col flex-auto sm:flex-row overflow-auto sm:overflow-scroll w-screen object-fill">
+            class="flex flex-col flex-auto sm:flex-row overflow-auto sm:overflow-scroll w-screen object-fill">
 
-                @if($day->is_off_day)
-                    <img class='w-full place-self-center rounded-3xl' src="{{asset('images/day-off.png')}}"
-                         alt="This is our day-off We know you’re Excited about Wing Tsun But we have Laundry to do"/>
+            @if($day->is_off_day)
+                <img class='w-full place-self-center rounded-3xl' src="{{asset('images/day-off.png')}}"
+                     alt="This is our day-off We know you’re Excited about Wing Tsun But we have Laundry to do"/>
+            @else
+
+                <button
+                    class="bg-green-400 text-white font-bold p-4 rounded-full place-self-center shadow hover:bg-green-100 hover:text-blue-500">
+                    Private Session
+                </button>
+
+                @if($day->privateSessions->isEmpty())
+                    <h2 class="font-bold place-self-center text-center w-1/4 mx-4">
+                        No Private Sessions Today
+                    </h2>
                 @else
-
-                    <button
-                        class="bg-green-400 text-white font-bold p-4 rounded-full place-self-center shadow hover:bg-green-100 hover:text-blue-500">
-                        Private Session
-                    </button>
-
-                    @if($day->privateSessions->isEmpty())
-                        <h2 class="font-bold place-self-center text-center w-1/4 mx-4">
-                            No Private Sessions Today
-                        </h2>
-                    @else
-                        <div class="grid lg:grid-cols-3 sm:grid-rows-3">
-                            @foreach($day->privateSessions as $wingchunSession)
-                                @livewire('session', ['wingchunSession' => $wingchunSession, 'user' => auth()->user()])
-                            @endforeach
-
-                            @if($day->private_limit == $day->privateSessions->count())
-                                <h2 class="font-bold text-center place-self-center mx-4">We reached our limit for
-                                    private sessions</h2>
-                            @endif
-                        </div>
-                    @endif
-
-
-                    <h1 class="font-bold place-self-center bg-blue-400 text-white p-4 rounded-full shadow text-center">
-                        Public Sessions
-                    </h1>
-
                     <div class="grid lg:grid-cols-3 sm:grid-rows-3">
-                        @foreach($day->sessions as $wingchunSession)
+                        @foreach($day->privateSessions as $wingchunSession)
                             @livewire('session', ['wingchunSession' => $wingchunSession, 'user' => auth()->user()])
                         @endforeach
                     </div>
                 @endif
-            </div>
+
+
+                <h1 class="font-bold place-self-center">
+                    Public Sessions
+                </h1>
+
+                <div class="grid lg:grid-cols-3 sm:grid-rows-3">
+                    @foreach($day->sessions as $wingchunSession)
+                        @livewire('session', ['wingchunSession' => $wingchunSession, 'user' => auth()->user()])
+                    @endforeach
+                </div>
+            @endif
         </div>
-    @endforeach
+    </div>
 </div>

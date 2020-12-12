@@ -10,6 +10,8 @@ class SessionManager
 {
     static public function statusForUser(Session $session, User $user)
     {
+        if ($session->is_private)
+            return SessionStatusForUser::UNACTIONABLE;
         if (in_array($user->id, $session->attendees->pluck('id')->toArray()) && $session->willBeAttendedBy($user))
             return SessionStatusForUser::CANCELLABLE;
         else if (in_array($user->id, $session->queuingStudents->pluck('id')->toArray()))

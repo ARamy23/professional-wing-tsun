@@ -24,9 +24,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Carbon::setWeekendDays([
-            Carbon::FRIDAY,
-            Carbon::SATURDAY
-        ]);
+        Carbon::setWeekStartsAt(Carbon::SATURDAY);
+        Carbon::setWeekEndsAt(Carbon::FRIDAY);
     }
 }

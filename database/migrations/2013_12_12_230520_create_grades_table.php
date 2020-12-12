@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class WingchunSession extends Migration
+class CreateGradesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class WingchunSession extends Migration
      */
     public function up()
     {
-        Schema::create('wingchun_sessions', function (Blueprint $table) {
+        Schema::create('grades', function (Blueprint $table) {
             $table->id();
-            $table->dateTime('from_time', 0);
-            $table->dateTime('to_time', 0);
-
-            $table->foreignId('day_id')->constrained()->cascadeOnDelete();
-            $table->integer('limit');
-            $table->boolean('is_private')->default(false);
-
+            $table->string('chinese_number');
+            $table->string('english_number');
+            $table->string('text_color');
+            $table->string('tshirt_color');
+            $table->text('info');
             $table->timestamps();
         });
     }
@@ -33,6 +31,6 @@ class WingchunSession extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('wingchun_sessions');
+        Schema::dropIfExists('grades');
     }
 }

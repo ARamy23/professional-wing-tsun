@@ -10,9 +10,18 @@ class Day extends Model
 {
     use HasFactory;
 
-    public function sessions()
+    public function allSessions()
     {
         return $this->hasMany(Session::class);
+    }
+
+    public function sessions()
+    {
+        return $this->allSessions()->where('is_private', '=', 0);
+    }
+
+    public function privateSessions() {
+        return $this->allSessions()->where('is_private', '=', 1);
     }
 
     static public function currentDay(): Day {

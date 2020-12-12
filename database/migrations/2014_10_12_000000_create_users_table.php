@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->bigInteger('excuses_count')->default(0);
             $table->bigInteger('allowed_excuses')->default(2);
             $table->boolean('is_instructor')->default(false);
+            $table->foreignId('grade_id')->constrained('grades')->cascadeOnDelete();
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();

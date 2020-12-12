@@ -18,6 +18,7 @@ class CreateDaysTable extends Migration
             $table->enum('name', ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']);
             $table->boolean('is_off_day');
             $table->dateTime('date', 0);
+            $table->integer('private_limit')->default(4);
 
             $table->foreignId('week_id')->constrained()->cascadeOnDelete();
 

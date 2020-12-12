@@ -28,13 +28,13 @@ class WeekWithSevenDays extends Seeder
                 'week_id' => $week->id
             ]);
         }, [
-                ['Saturday', false, Carbon::parse('Saturday this week 12am')],
-                ['Sunday', false, Carbon::parse('Sunday this week 12am')],
-                ['Monday', false, Carbon::parse('Monday this week 12am')],
-                ['Tuesday', false, Carbon::parse('Tuesday this week 12am')],
-                ['Wednesday', false, Carbon::parse('Wednesday this week 12am')],
-                ['Thursday', true, Carbon::parse('Thursday this week 12am')],
-                ['Friday', false, Carbon::parse('Friday this week 12am')],
+                ['Saturday', false, Carbon::parse('Saturday 12am')],
+                ['Sunday', false, Carbon::parse('Sunday 12am')],
+                ['Monday', false, Carbon::parse('Monday 12am')],
+                ['Tuesday', false, Carbon::parse('Tuesday 12am')],
+                ['Wednesday', false, Carbon::parse('Wednesday 12am')],
+                ['Thursday', true, Carbon::parse('Thursday 12am')],
+                ['Friday', false, Carbon::parse('Friday 12am')],
             ]
         );
 

@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use App\Http\Controllers\Booker;
 use App\Http\Controllers\SessionActivityState;
 use App\Http\Controllers\SessionManager;
+use App\Http\Controllers\SessionStatusForUser;
 use App\Models\User;
 use App\Models\Session as WingchunSession;
 use Livewire\Component;
@@ -64,36 +65,44 @@ class Session extends Component
                 $this->emit('alreadyQueuedModal');
                 break;
         }
+        $this->wingchunSession->refresh();
+        $this->user->refresh();
     }
 
     public function getCTAButtonTitle()
     {
         switch ($this->sessionAvailabilityStateForCurrentUser) {
-            case "bookable":
+            case SessionStatusForUser::BOOKABLE:
                 return "Book";
-            case "cancellable":
+            case SessionStatusForUser::CANCELLABLE:
                 return "Cancel";
-            case "queueable":
+            case SessionStatusForUser::QUEUEABLE:
                 return "Queue";
-            case "already_queued":
+            case SessionStatusForUser::ALREADY_QUEUED:
                 return "Already Queued.";
+            case SessionStatusForUser::UNACTIONABLE:
+                return "";
         }
     }
 
     public function getCTAButtonBGColor()
     {
         switch ($this->sessionAvailabilityStateForCurrentUser) {
-            case "bookable":
+            case SessionStatusForUser::BOOKABLE:
                 return "green";
-            case "cancellable":
+            case SessionStatusForUser::CANCELLABLE:
                 return "red";
-            case "already_queued":
-            case "queueable":
+            case SessionStatusForUser::QUEUEABLE:
+            case SessionStatusForUser::ALREADY_QUEUED:
                 return "orange";
+            case SessionStatusForUser::UNACTIONABLE:
+                return "white";
         }
     }
 
     public function getIsActionable() {
+        if ($this->sessionAvailabilityStateForCurrentUser == SessionStatusForUser::UNACTIONABLE)
+            return false;
         switch ($this->sessionActivityState) {
             case SessionActivityState::NOT_YET_STARTED:
                 return true;

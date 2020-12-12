@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Livewire\ThisWeek;
+use App\Http\Livewire\Today;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,5 +25,5 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
     })->name('dashboard');
 
     Route::get('/sessions/this-week', ThisWeek::class)->name('this-week');
-    Route::get('/sessions/today', ThisWeek::class)->name('today');
+    Route::get('/sessions/today', Today::class)->name('today');
 });

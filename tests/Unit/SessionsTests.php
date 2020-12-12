@@ -35,6 +35,7 @@ class SessionsTests extends TestCase
     {
         parent::setUp();
         $this->artisan('migrate:fresh --seed');
+        TestTime::setTestNow(Carbon::today());
     }
 
     public function testSessionsAreSeededSoThatThereAreThreeEverydayExceptOnOffDays()
@@ -44,8 +45,6 @@ class SessionsTests extends TestCase
         $this->assertDatabaseCount('weeks', 1);
         // Week has 7 days
         $this->assertDatabaseCount('days', 7);
-        // Each day has 3 sessions except for off-day
-        $this->assertDatabaseCount('wingchun_sessions', 3 * 6);
 
         $week = Week::find(1);
         $day = Day::find(2);
@@ -65,7 +64,7 @@ class SessionsTests extends TestCase
         // Create User
         $firstAttendee = User::factory()->create();
         // Get 1st Session
-        $firstWorkingDay = Day::where('date', '!=', Carbon::tomorrow())->where('is_off_day', '!=', '1')->first();
+        $firstWorkingDay = Day::where('date', '!=', Carbon::today())->where('is_off_day', '!=', '1')->first();
         $firstSession = $firstWorkingDay->sessions->first();
         // Make User book a session
         Booker::book($firstSession, $firstAttendee);

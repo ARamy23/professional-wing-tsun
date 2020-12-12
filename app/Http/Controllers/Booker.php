@@ -33,17 +33,14 @@ class Booker
             ['user_id', $user->id]
         ])->first();
 
-        if (empty($pivot)) {
-            SessionUser::create([
-                'attendance_status' => 'booked',
-                'user_id' => $user->id,
-                'session_id' => $sessionToBook->id
-            ]);
-        } else {
-            $pivot->update([
-                'attendance_status' => 'booked'
-            ]);
-        }
+        SessionUser::updateOrCreate([
+            'user_id' => $user->id,
+            'session_id' => $sessionToBook->id
+        ],[
+            'attendance_status' => 'booked',
+            'user_id' => $user->id,
+            'session_id' => $sessionToBook->id
+        ]);
     }
 
     static public function cancel(Session $sessionToCancel, User $user)

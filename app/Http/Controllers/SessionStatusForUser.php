@@ -8,4 +8,5 @@ class SessionStatusForUser
     const ALREADY_QUEUED = "alreadyQueued";
     const QUEUEABLE = "queueable";
     const BOOKABLE = "bookable";
+    const UNACTIONABLE = "unactionable";
 }

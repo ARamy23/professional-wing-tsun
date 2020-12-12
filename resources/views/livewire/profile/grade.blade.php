@@ -10,39 +10,29 @@
     <x-slot name="form">
         <div class="col-span-4 sm:col-span-6">
             <h2 class="font-bold bg-blue-900 p-4 rounded-full text-3xl text-white text-center">
-                九
+                {{ $grade->chinese_number }}
             </h2>
 
             <p class="font-bold place-self-center text-center p-2">
-                {{ __('Grade 9') }}
+                {{ __('Grade ' . $grade->english_number) }}
             </p>
 
             <p class="font-bold my-4">
-                This Grade sometimes takes from 1 to 2 months to finish
+                {{ $grade->info }}
             </p>
 
             <p class="font-bold my-4">
                 {{ __('In this grade you should focus on...') }}
             </p>
 
-            <ul class="list-disc mx-4">
-                <li>
-                    <p>
-                        {{ __('Movement, Move from one leg to the other, switch legs quickly, shifting') }}
-                    </p>
-                </li>
-
-                <li>
-                    {{ __('Chain Punch quickly') }}
-                </li>
-
-                <li>
-                    {{ __('Elbows Form') }}
-                </li>
-
-                <li>
-                    {{ __('Stretching your legs') }}
-                </li>
+            <ul>
+                @foreach($grade->learningPoints as $learningPoint)
+                    <li>
+                        <p>
+                            {{ __($learningPoint->point) }}
+                        </p>
+                    </li>
+                @endforeach
             </ul>
         </div>
     </x-slot>

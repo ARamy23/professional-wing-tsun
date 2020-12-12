@@ -79,4 +79,9 @@ class User extends Authenticatable
         $session->attendees()->find($this->id)->pivot->refresh();
         return $session->attendees()->find($this->id)->pivot->attendance_status == 'didnt_attend';
     }
+
+    public function grade()
+    {
+        return $this->hasOne(Grade::class);
+    }
 }
