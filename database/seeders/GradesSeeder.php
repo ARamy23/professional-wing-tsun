@@ -62,7 +62,7 @@ class GradesSeeder extends Seeder
             'chinese_number' => '五',
             'english_number' => '5',
             'text_color' => 'black',
-            'tshirt_color' => 'gray',
+            'tshirt_color' => 'gray-300',
             'info' => 'INFO TO BE ADDED BY MOHAMED'
         ]);
 
@@ -70,7 +70,7 @@ class GradesSeeder extends Seeder
             'chinese_number' => '6',
             'english_number' => '六',
             'text_color' => 'black',
-            'tshirt_color' => 'gray',
+            'tshirt_color' => 'gray-300',
             'info' => 'INFO TO BE ADDED BY MOHAMED'
         ]);
 
@@ -78,7 +78,7 @@ class GradesSeeder extends Seeder
             'chinese_number' => '七',
             'english_number' => '7',
             'text_color' => 'black',
-            'tshirt_color' => 'gray',
+            'tshirt_color' => 'gray-300',
             'info' => 'INFO TO BE ADDED BY MOHAMED'
         ]);
 
@@ -86,7 +86,7 @@ class GradesSeeder extends Seeder
             'chinese_number' => '八',
             'english_number' => '8',
             'text_color' => 'black',
-            'tshirt_color' => 'gray',
+            'tshirt_color' => 'gray-300',
             'info' => 'This Grade sometimes takes from 1 to 2 months to finish'
         ]);
 

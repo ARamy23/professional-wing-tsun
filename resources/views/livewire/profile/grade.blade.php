@@ -9,7 +9,7 @@
 
     <x-slot name="form">
         <div class="col-span-4 sm:col-span-6">
-            <h2 class="font-bold bg-blue-900 p-4 rounded-full text-3xl text-white text-center">
+            <h2 class="font-bold bg-{{ $grade->tshirt_color }} p-4 rounded-full shadow text-3xl text-{{ $grade->text_color }} text-center">
                 {{ $grade->chinese_number }}
             </h2>
 
@@ -25,7 +25,7 @@
                 {{ __('In this grade you should focus on...') }}
             </p>
 
-            <ul>
+            <ul class="list-disc mx-4">
                 @foreach($grade->learningPoints as $learningPoint)
                     <li>
                         <p>

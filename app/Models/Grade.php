@@ -13,4 +13,9 @@ class Grade extends Model
     {
         return $this->hasMany(GradeFocusOn::class);
     }
+
+    public function users()
+    {
+        return $this->hasMany(User::class);
+    }
 }

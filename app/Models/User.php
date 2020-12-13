@@ -28,7 +28,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'grade_id', 'certified_grade_id'
     ];
 
     /**
@@ -82,6 +82,11 @@ class User extends Authenticatable
 
     public function grade()
     {
-        return $this->hasOne(Grade::class);
+        return $this->belongsTo(Grade::class)->with('learningPoints');
+    }
+
+    public function certifiedGrade()
+    {
+        return $this->belongsTo(Grade::class, 'certified_grade_id')->with('learningPoints');
     }
 }
