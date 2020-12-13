@@ -28,7 +28,7 @@
                 With data like who is booking, who attended, on going sessions for a specific branch
             </div>
 
-            <a href="{{url('/sessions/this-week')}}">
+            <a href="{{route('this-week')}}">
                 <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
                         <div>Explore the week's Sessions</div>
 
@@ -43,7 +43,7 @@
     <div class="p-6 border-t border-gray-200 md:border-t-0 md:border-l">
         <div class="flex items-center">
             <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-400"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a href="https://laracasts.com">Today's Sessions</a></div>
+            <div class="ml-4 text-lg text-gray-600 leading-7 font-semibold"><a href="{{ route('today') }}">Today's Sessions</a></div>
         </div>
 
         <div class="ml-12">
@@ -51,7 +51,7 @@
                 You can see what is taking place today, either private sessions or public sessions
             </div>
 
-            <a href="https://laracasts.com">
+            <a href="{{ route('today') }}">
                 <div class="mt-3 flex items-center text-sm font-semibold text-indigo-700">
                         <div>Explore Today's Sessions</div>
 

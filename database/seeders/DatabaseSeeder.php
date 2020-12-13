@@ -16,7 +16,6 @@ class DatabaseSeeder extends Seeder
         $this->call([
             GradesSeeder::class,
             WeekWithSevenDays::class,
-            PrivateSessionSeeder::class,
         ]);
     }
 }
