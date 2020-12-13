@@ -24,6 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2a019ed0-12a1-484e-a10f-fecd54b9b506" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/logging.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/logging.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -247,7 +249,7 @@
       <workItem from="1606826213011" duration="4414000" />
       <workItem from="1606832037157" duration="547000" />
       <workItem from="1607693000534" duration="34632000" />
-      <workItem from="1607798260171" duration="17469000" />
+      <workItem from="1607798260171" duration="21887000" />
     </task>
     <servers />
   </component>
@@ -332,12 +334,13 @@
     <state x="561" y="277" key="run.anything.popup/0.0.1792.1042@0.0.1792.1042" timestamp="1607703232186" />
     <state x="561" y="265" key="run.anything.popup/0.0.1792.1071@0.0.1792.1071" timestamp="1606771558704" />
     <state x="561" y="298" key="run.anything.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1607809563617" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1607844341726">
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1607878783581">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1040@0.0.1792.1040" timestamp="1607698716856" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1042@0.0.1792.1042" timestamp="1607802651980" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1049@0.0.1792.1049" timestamp="1607877751749" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1071@0.0.1792.1071" timestamp="1606826488794" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1607844341726" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1607878783581" />
   </component>
 </project>
