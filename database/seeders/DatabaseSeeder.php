@@ -15,6 +15,8 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             GradesSeeder::class,
+            BranchesSeeder::class,
+            AdminSeeder::class,
             WeekWithSevenDays::class,
         ]);
     }

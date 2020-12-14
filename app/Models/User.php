@@ -89,4 +89,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Grade::class, 'certified_grade_id')->with('learningPoints');
     }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
 }
