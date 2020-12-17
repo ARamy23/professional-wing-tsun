@@ -31,12 +31,12 @@
 
             <div class="mt-4">
                 <x-jet-label for="grade" value="{{ __('Current Grade') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="number" min="1" max="12" name="grade" required autocomplete="grade" />
+                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="number" min="1" max="12" name="grade" required />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="grade" value="{{ __('Current Grade') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="number" min="1" max="12" name="grade" required autocomplete="grade" />
+                <x-jet-label for="branch" value="{{ __('Branch') }}" />
+                <livewire:profile.branches-dropdown/>
             </div>
 
 

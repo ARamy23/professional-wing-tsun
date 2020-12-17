@@ -21,7 +21,7 @@ class AdminSeeder extends Seeder
             'name' => 'Ahmed Ramy',
             'email' => 'dev.ahmedramy@gmail.com',
             'grade' => 9,
-            'branch' => Branch::NASR_CITY_BRANCH_ID,
+            'branch' => Branch::find(Branch::NASR_CITY_BRANCH_ID)->name,
             'password' => 'nba4life',
             'password_confirmation' => 'nba4life'
         ]);

@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Branch;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -21,18 +22,20 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
-        Validator::make($input, [
+        $validator = Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'grade' => ['required', 'integer', 'min:1', 'max:12'],
             'is_instructor' => ['boolean'],
-            'branch' => ['required', 'integer'],
+            'branch' => ['required', 'string'],
             'password' => $this->passwordRules(),
-        ])->validate();
+        ]);
 
-//        if($validator->fails()) {
-//            dd($validator->errors());
-//        }
+
+        if($validator->fails()) {
+            dd($input['branch']);
+            dd($validator->errors());
+        }
 
         return DB::transaction(function () use ($input) {
             return tap(User::create([
@@ -41,7 +44,7 @@ class CreateNewUser implements CreatesNewUsers
                 'grade_id' => (int) $input['grade'],
                 'password' => Hash::make($input['password']),
                 'is_instructor' => $input['is_instructor'] ?? false,
-                'branch_id' => $input['branch'],
+                'branch_id' => (int) Branch::firstWhere('name', $input['branch'])->id,
             ]), function (User $user) {
                 $this->createTeam($user);
             });

@@ -29,7 +29,7 @@ class BranchesSeeder extends Seeder
                 'email' => 'sifu.yasser@prowingtsun.com',
                 'grade' => 12,
                 'is_instructor' => true,
-                'branch' => $nasrBranch->id,
+                'branch' => $nasrBranch->name,
                 'password' => 'password',
                 'password_confirmation' => 'password'
             ]),
@@ -38,7 +38,7 @@ class BranchesSeeder extends Seeder
                 'email' => 'sifu.kareem@prowingtsun.com',
                 'grade' => 12,
                 'is_instructor' => true,
-                'branch' => $nasrBranch->id,
+                'branch' => $nasrBranch->name,
                 'password' => 'password',
                 'password_confirmation' => 'password'
             ])
@@ -55,7 +55,7 @@ class BranchesSeeder extends Seeder
                 'email' => 'sifu.ahmed.noah@prowingtsun.com',
                 'grade' => 12,
                 'is_instructor' => true,
-                'branch' => $maadiBranch->id,
+                'branch' => $maadiBranch->name,
                 'password' => 'password',
                 'password_confirmation' => 'password'
             ])
@@ -72,7 +72,7 @@ class BranchesSeeder extends Seeder
                 'email' => 'sifu.mohamed.noah@prowingtsun.com',
                 'grade' => 12,
                 'is_instructor' => true,
-                'branch' => $fifthSettlementBranch->id,
+                'branch' => $fifthSettlementBranch->name,
                 'password' => 'password',
                 'password_confirmation' => 'password'
             ])

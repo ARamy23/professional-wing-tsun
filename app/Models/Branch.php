@@ -13,6 +13,8 @@ class Branch extends Model
     public const MAADI_BRANCH_ID = 2;
     public const FIFTH_SETTLEMENT_BRANCH_ID = 3;
 
+    protected $guarded = [];
+
     public function users()
     {
         return $this->hasMany(User::class);
