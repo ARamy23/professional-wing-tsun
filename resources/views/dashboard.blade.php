@@ -11,7 +11,8 @@
                 <x-jet-welcome />
             </div>
 
-            @role('moderator')
+
+            @role('student')
                 <div class="my-10 bg-white overflow-hidden shadow-xl sm:rounded-lg">
                     <livewire:dashboard.sessions-section />
                 </div>

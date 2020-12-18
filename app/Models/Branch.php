@@ -22,6 +22,8 @@ class Branch extends Model
 
     public function instructors()
     {
-        return $this->hasMany(User::class)->where('user.role', 'instructor');
+        return $this->hasMany(User::class)->with(['roles' => function ($q) {
+            $q->where('name', 'instructor');
+        }]);
     }
 }

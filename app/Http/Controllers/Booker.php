@@ -8,6 +8,7 @@ use App\Exceptions\CancelSessionInSameDayException;
 use App\Exceptions\NoMoreSlotsToBookException;
 use App\Exceptions\SurpassedAllowedExcusesException;
 use App\Exceptions\TryingToBookASessionThatStarted;
+use App\Exceptions\TryingToBookASessionWithoutSessionCredit;
 use App\Exceptions\TryingToCancelASessionThatStarted;
 use App\Models\Session;
 use App\Models\SessionUser;
@@ -64,6 +65,7 @@ class Booker
     private static function makeSureSessionIsBookable(Session $session, User $user)
     {
         if (SessionManager::activityStateOf($session) != SessionActivityState::NOT_YET_STARTED) throw new TryingToBookASessionThatStarted();
+        if ($user->sessions_credit <= 0) throw new TryingToBookASessionWithoutSessionCredit();
         if ($session->attendees()->where('attendance_status', 'booked')->count() >= $session->limit) throw new NoMoreSlotsToBookException();
     }
 

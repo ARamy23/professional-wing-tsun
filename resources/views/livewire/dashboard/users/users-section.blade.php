@@ -35,15 +35,15 @@
                             </th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                Title
-                            </th>
-                            <th scope="col"
-                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Status
                             </th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                 Role
+                            </th>
+                            <th scope="col"
+                                class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Sessions Credit
                             </th>
                             <th scope="col"
                                 class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -84,14 +84,15 @@
                                             <div class="flex-shrink-0 h-10 w-10">
                                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
                                                     <a
-                                                        href="{{route('profile.show.specific', $user->id)}}"
+                                                        href="{{route('edit-user', $user->id)}}"
                                                         class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition duration-150 ease-in-out">
                                                         <img class="h-8 w-8 rounded-full object-cover"
                                                              src="{{ $user->profile_photo_url }}"
                                                              alt="{{ $user->name }}"/>
                                                     </a>
                                                 @else
-                                                    <button
+                                                    <a
+                                                        href="{{route('edit.user', $user->id)}}"
                                                         class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                                                         <div>{{ $user->name }}</div>
 
@@ -104,7 +105,7 @@
                                                                       clip-rule="evenodd"/>
                                                             </svg>
                                                         </div>
-                                                    </button>
+                                                    </a>
                                                 @endif
                                             </div>
                                             <div class="ml-4">
@@ -124,15 +125,20 @@
                                         </div>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap">
-                                        <div class="text-sm text-gray-900">{{ $user->roles->first()->title }}</div>
-                                    </td>
-                                    <td class="px-6 py-4 whitespace-nowrap">
                 <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
                   Active
                 </span>
                                     </td>
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                         {{ $user->roles->first()->title }}
+                                    </td>
+
+                                    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                        @if($user->hasRole('student'))
+                                            {{ $user->sessions_credit }}
+                                        @else
+                                            N/A
+                                        @endif
                                     </td>
 
                                     <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">

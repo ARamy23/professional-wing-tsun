@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->bigInteger('excuses_count')->default(0);
             $table->bigInteger('allowed_excuses')->default(2);
+            $table->bigInteger('sessions_credit')->default(0);
             $table->foreignId('grade_id')->constrained('grades')->cascadeOnDelete();
             $table->foreignId('certified_grade_id')->default(1)->constrained('grades')->cascadeOnDelete();
             $table->foreignId('branch_id')->constrained('branches')->cascadeOnDelete();

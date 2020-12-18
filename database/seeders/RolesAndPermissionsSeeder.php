@@ -22,7 +22,7 @@ class RolesAndPermissionsSeeder extends Seeder
         Permission::create(['name' => 'see users']);
         Permission::create(['name' => 'attend sessions']);
         Permission::create(['name' => 'instruct sessions']);
-
+        Permission::create(['name' => 'edit users']);
         // create roles and assign created permissions
 
         // this can be done as separate statements
@@ -33,7 +33,7 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $instructorRole->givePermissionTo(['see users', 'instruct sessions']);
         $studentRole->givePermissionTo('attend sessions');
-        $moderatorRole->givePermissionTo('see users');
+        $moderatorRole->givePermissionTo(['see users', 'edit users']);
         $adminRole->givePermissionTo(Permission::all());
     }
 }

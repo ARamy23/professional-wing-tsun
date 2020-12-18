@@ -7,7 +7,7 @@
 
         <div class="ml-12">
             <div class="mt-2 text-sm text-gray-500">
-                You have <span class="font-bold text-indigo-600">5</span> sessions left in your balance
+                You have <span class="font-bold text-indigo-600">{{ auth()->user()->sessions_credit }}</span> sessions left in your balance
             </div>
 
             <a href="{{route('profile.show')}}">

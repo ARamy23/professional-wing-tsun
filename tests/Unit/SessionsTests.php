@@ -8,6 +8,7 @@ use App\Exceptions\CancelSessionInSameDayException;
 use App\Exceptions\NoMoreSlotsToBookException;
 use App\Exceptions\SurpassedAllowedExcusesException;
 use App\Exceptions\TryingToBookASessionThatStarted;
+use App\Exceptions\TryingToBookASessionWithoutSessionCredit;
 use App\Exceptions\TryingToCancelASessionThatStarted;
 use App\Http\Controllers\Attender;
 use App\Http\Controllers\Booker;
@@ -398,5 +399,51 @@ class SessionsTests extends TestCase
         // Cancel & expect TryingToCancelASessionThatStarted
         $this->expectException(TryingToCancelASessionThatStarted::class);
         Booker::cancel($session, $user);
+    }
+
+    public function testWhenUserBooksSessionWithNoSessionCreditItThrowsAnError()
+    {
+        // Create a user with 0 sessions credit
+        $user = User::factory()->create(['sessions_credit' => 0]);
+        $user->refresh();
+        // Get a session
+        $firstWorkingDay = Day::where('is_off_day', '!=', '1')->first();
+        $session = $firstWorkingDay->sessions->first();
+        // Book Session & Expect an exception
+        $this->expectException(TryingToBookASessionWithoutSessionCredit::class);
+        Booker::book($session, $user);
+    }
+
+    public function testWhenUserBooksSessionWithSessionCreditHeGetsBookedNormally()
+    {
+        // Create a user
+        $user = User::factory()->create();
+        $user->refresh();
+        // Get a session
+        $firstWorkingDay = Day::where('is_off_day', '!=', '1')->first();
+        $session = $firstWorkingDay->sessions->first();
+        // Make the user's session credit = 32
+        $user->sessions_credit = 32;
+        $user->refresh();
+        // Book Session & Expect an exception
+        Booker::book($session, $user);
+        // Assert User was booked
+        self::assertTrue($session->willBeAttendedBy($user));
+    }
+
+    public function testWhenSessionIsAttendedSessionCreditIsDecreased()
+    {
+        // Create a user
+        $user = User::factory()->create();
+        $user->refresh();
+        // Get a session
+        $firstWorkingDay = Day::where('is_off_day', '!=', '1')->first();
+        $session = $firstWorkingDay->sessions->first();
+        // Book Session & Expect an exception
+        Booker::book($session, $user);
+        TestTime::setTestNow($session->from_time);
+        // Attend Session
+        Attender::attend($user, $session);
+        self::assertTrue($user->sessions_credit <= 0);
     }
 }
