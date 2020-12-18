@@ -26,16 +26,17 @@ class CreateNewUser implements CreatesNewUsers
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'grade' => ['required', 'integer', 'min:1', 'max:12'],
-            'is_instructor' => ['boolean'],
+            'role' => ['string'],
             'branch' => ['required', 'string'],
             'password' => $this->passwordRules(),
         ]);
 
 
-        if($validator->fails()) {
-            dd($input['branch']);
-            dd($validator->errors());
-        }
+        $validator->validate();
+//        if($validator->fails()) {
+//            dd($input['branch']);
+//            dd($validator->errors());
+//        }
 
         return DB::transaction(function () use ($input) {
             return tap(User::create([
@@ -43,9 +44,10 @@ class CreateNewUser implements CreatesNewUsers
                 'email' => $input['email'],
                 'grade_id' => (int) $input['grade'],
                 'password' => Hash::make($input['password']),
-                'is_instructor' => $input['is_instructor'] ?? false,
                 'branch_id' => (int) Branch::firstWhere('name', $input['branch'])->id,
-            ]), function (User $user) {
+            ]), function (User $user) use ($input) {
+
+                $user->assignRole($input['role']);
                 $this->createTeam($user);
             });
         });

@@ -8,6 +8,8 @@ class CertifiedGrade extends Component
 {
     public function render()
     {
-        return view('livewire.profile.certified-grade');
+        return view('livewire.profile.certified-grade', [
+            'certifiedGrade' => auth()->user()->certifiedGrade
+        ]);
     }
 }

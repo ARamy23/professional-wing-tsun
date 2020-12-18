@@ -23,22 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2a019ed0-12a1-484e-a10f-fecd54b9b506" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Actions/Fortify/CreateNewUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Profile/Branch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Profile/Branch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Branch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Branch.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/AdminSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/AdminSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/BranchesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/BranchesSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/guest.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/dropdown-field.blade.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/profile/branch.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/profile/branch.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/authentication-card.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/authentication-card.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/input.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/input.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Profile/CertifiedGrade.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Profile/CertifiedGrade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,6 +165,9 @@
       <path value="$PROJECT_DIR$/vendor/brick/math" />
       <path value="$PROJECT_DIR$/vendor/spatie/test-time" />
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/laravel/scout" />
+      <path value="$PROJECT_DIR$/vendor/algolia/algoliasearch-client-php" />
     </include_path>
   </component>
   <component name="ProjectId" id="1l1QGbsyz8rBShog1asx19smEkl" />
@@ -204,15 +192,15 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/storage/app/public/images" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/database/migrations" />
       <recent name="$PROJECT_DIR$/app/Exceptions" />
       <recent name="$PROJECT_DIR$/resources/views/emails" />
       <recent name="$PROJECT_DIR$/app/Mail" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/storage/app/public/images" />
     </key>
   </component>
   <component name="RunManager" selected="PHPUnit.SessionsTests">
@@ -266,7 +254,7 @@
       <workItem from="1607981705893" duration="1740000" />
       <workItem from="1608078547206" duration="4908000" />
       <workItem from="1608204634356" duration="12000" />
-      <workItem from="1608223053728" duration="4344000" />
+      <workItem from="1608223053728" duration="4650000" />
     </task>
     <servers />
   </component>
@@ -350,25 +338,26 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="397" y="199" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1606826393365" />
-    <state x="597" y="315" width="748" height="490" key="find.popup" timestamp="1608147894009">
+    <state x="597" y="315" width="775" height="522" key="find.popup" timestamp="1608293893008">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="597" y="291" width="748" height="490" key="find.popup/0.0.1792.1035@0.0.1792.1035" timestamp="1607983094205" />
-    <state x="597" y="315" width="748" height="490" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1608147894009" />
+    <state x="597" y="315" width="775" height="522" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1608293893008" />
     <state x="561" y="298" key="run.anything.popup" timestamp="1608147799075">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="561" y="277" key="run.anything.popup/0.0.1792.1042@0.0.1792.1042" timestamp="1607703232186" />
     <state x="561" y="265" key="run.anything.popup/0.0.1792.1071@0.0.1792.1071" timestamp="1606771558704" />
     <state x="561" y="298" key="run.anything.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1608147799075" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1608230413858">
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1608294187376">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="561" y="232" width="670" height="625" key="search.everywhere.popup/0.0.1792.1035@0.0.1792.1035" timestamp="1607982791747" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1040@0.0.1792.1040" timestamp="1607698716856" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1042@0.0.1792.1042" timestamp="1608081994195" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1049@0.0.1792.1049" timestamp="1607877751749" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1054@0.0.1792.1054" timestamp="1608242904182" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1071@0.0.1792.1071" timestamp="1606826488794" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1608230413858" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1608294187376" />
   </component>
 </project>

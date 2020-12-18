@@ -22,8 +22,19 @@ class AdminSeeder extends Seeder
             'email' => 'dev.ahmedramy@gmail.com',
             'grade' => 9,
             'branch' => Branch::find(Branch::NASR_CITY_BRANCH_ID)->name,
+            'role' => 'student',
             'password' => 'nba4life',
             'password_confirmation' => 'nba4life'
+        ]);
+
+        $userCreator->create([
+            'name' => 'Moderator',
+            'email' => 'mod@prowingtsun.com',
+            'grade' => 12,
+            'branch' => Branch::find(Branch::NASR_CITY_BRANCH_ID)->name,
+            'password' => 'password',
+            'role' => 'admin',
+            'password_confirmation' => 'password'
         ]);
     }
 }

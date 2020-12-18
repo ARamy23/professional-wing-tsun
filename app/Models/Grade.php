@@ -9,6 +9,8 @@ class Grade extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function learningPoints()
     {
         return $this->hasMany(GradeFocusOn::class);

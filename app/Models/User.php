@@ -12,6 +12,8 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Scout\Searchable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -21,6 +23,8 @@ class User extends Authenticatable
     use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasRoles;
+//    use Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -94,4 +98,34 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Branch::class);
     }
+
+    public function canSeeUsers()
+    {
+        return $this->can('see users');
+    }
+
+//    public function searchableAs()
+//    {
+//        return "users_index";
+//    }
+//
+//    public function toSearchableArray()
+//    {
+//        return $this->toArray();
+//    }
+//
+//    public function getScoutKey()
+//    {
+//        return $this->email;
+//    }
+//
+//    public function getScoutKeyName()
+//    {
+//        return "email";
+//    }
+//
+//    protected function makeAllSearchableUsing($query)
+//    {
+//        return $query->with(['branches', 'grades', 'certifiedGrades', 'sessions']);
+//    }
 }
