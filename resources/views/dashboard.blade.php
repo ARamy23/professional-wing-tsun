@@ -10,6 +10,19 @@
             <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
                 <x-jet-welcome />
             </div>
+
+
+            @role('student')
+                <div class="my-10 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <livewire:dashboard.sessions-section />
+                </div>
+            @endrole
+
+            @can('see users')
+                <div class="my-10 bg-white overflow-hidden shadow-xl sm:rounded-lg">
+                    <livewire:dashboard.users.users-section />
+                </div>
+            @endcan
         </div>
     </div>
 </x-app-layout>

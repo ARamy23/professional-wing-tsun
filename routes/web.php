@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Dashboard\Users\EditUser;
 use App\Http\Livewire\ThisWeek;
 use App\Http\Livewire\Today;
 use Illuminate\Support\Facades\Route;
@@ -26,4 +27,8 @@ Route::middleware(['auth:sanctum', 'verified'])->group(function () {
 
     Route::get('/sessions/this-week', ThisWeek::class)->name('this-week');
     Route::get('/sessions/today', Today::class)->name('today');
+
+    Route::group(['middleware' => ['can:edit users']], function () {
+       Route::get('/users/{user}/edit', EditUser::class)->name('edit-user');
+    });
 });

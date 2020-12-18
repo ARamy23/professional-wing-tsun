@@ -2,6 +2,7 @@
 
 namespace App\Actions\Fortify;
 
+use App\Models\Branch;
 use App\Models\Team;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -21,12 +22,21 @@ class CreateNewUser implements CreatesNewUsers
      */
     public function create(array $input)
     {
-        Validator::make($input, [
+        $validator = Validator::make($input, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'grade' => ['required', 'integer', 'min:1', 'max:12'],
+            'role' => ['string'],
+            'branch' => ['required', 'string'],
             'password' => $this->passwordRules(),
-        ])->validate();
+        ]);
+
+
+        $validator->validate();
+//        if($validator->fails()) {
+//            dd($input['branch']);
+//            dd($validator->errors());
+//        }
 
         return DB::transaction(function () use ($input) {
             return tap(User::create([
@@ -34,7 +44,10 @@ class CreateNewUser implements CreatesNewUsers
                 'email' => $input['email'],
                 'grade_id' => (int) $input['grade'],
                 'password' => Hash::make($input['password']),
-            ]), function (User $user) {
+                'branch_id' => (int) Branch::firstWhere('name', $input['branch'])->id,
+            ]), function (User $user) use ($input) {
+
+                $user->assignRole($input['role']);
                 $this->createTeam($user);
             });
         });

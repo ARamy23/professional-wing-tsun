@@ -12,6 +12,8 @@ use Laravel\Fortify\TwoFactorAuthenticatable;
 use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
+use Laravel\Scout\Searchable;
+use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
@@ -21,6 +23,7 @@ class User extends Authenticatable
     use HasTeams;
     use Notifiable;
     use TwoFactorAuthenticatable;
+    use HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -28,7 +31,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'grade_id', 'certified_grade_id'
+        'name',
+        'email',
+        'password',
+        'grade_id',
+        'certified_grade_id',
+        'branch_id',
+        'title',
+        'allowed_excuses',
+        'sessions_credit',
     ];
 
     /**
@@ -88,5 +99,15 @@ class User extends Authenticatable
     public function certifiedGrade()
     {
         return $this->belongsTo(Grade::class, 'certified_grade_id')->with('learningPoints');
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
+    public function canSeeUsers()
+    {
+        return $this->can('see users');
     }
 }

@@ -24,9 +24,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2a019ed0-12a1-484e-a10f-fecd54b9b506" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Authenticate.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/vendor/jetstream/components/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Dashboard/Sessions/TimeUntilNextSession.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Dashboard/Sessions/TimeUntilNextSession.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Dashboard/Users/EditUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Dashboard/Users/EditUser.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/dashboard/sessions/time-until-next-session.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/dashboard/sessions/time-until-next-session.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/dashboard/users/edit-user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/dashboard/users/edit-user.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,6 +170,9 @@
       <path value="$PROJECT_DIR$/vendor/brick/math" />
       <path value="$PROJECT_DIR$/vendor/spatie/test-time" />
       <path value="$PROJECT_DIR$/vendor/predis/predis" />
+      <path value="$PROJECT_DIR$/vendor/spatie/laravel-permission" />
+      <path value="$PROJECT_DIR$/vendor/laravel/scout" />
+      <path value="$PROJECT_DIR$/vendor/algolia/algoliasearch-client-php" />
     </include_path>
   </component>
   <component name="ProjectId" id="1l1QGbsyz8rBShog1asx19smEkl" />
@@ -192,9 +197,6 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/storage/app/public/images" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/database/migrations" />
       <recent name="$PROJECT_DIR$/app/Exceptions" />
@@ -202,18 +204,13 @@
       <recent name="$PROJECT_DIR$/app/Mail" />
       <recent name="$PROJECT_DIR$/app/Http/Controllers" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/storage/app/public/images" />
+    </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.SessionsTests">
+  <component name="RunManager" selected="PHPUnit.SessionsTests.testWhenSessionIsAttendedSessionCreditIsDecreased">
     <configuration name="SessionsTests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" singleton="false" temporary="true">
       <TestRunner class="Tests\Unit\SessionsTests" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/SessionsTests.php" scope="Class" />
-      <method v="2" />
-    </configuration>
-    <configuration name="SessionsTests.testThatOnEveryWorkingDayAtSevenUntilTenPMUsersWhoDidntMarkThemselvesAttendedInTheirBookedSessionsAreMarkedDidntAttend" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\SessionsTests" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/SessionsTests.php" method="testThatOnEveryWorkingDayAtSevenUntilTenPMUsersWhoDidntMarkThemselvesAttendedInTheirBookedSessionsAreMarkedDidntAttend" scope="Method" />
-      <method v="2" />
-    </configuration>
-    <configuration name="SessionsTests.testUserCanCancelAsLongAsHeHasExcusesOrItsCancelledInTheSameDay" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="Tests\Unit\SessionsTests" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/SessionsTests.php" method="testUserCanCancelAsLongAsHeHasExcusesOrItsCancelledInTheSameDay" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="SessionsTests.testUserCantAttendASessionBeforeItsFromDateByMoreThanFifteenMinutes" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
@@ -224,17 +221,25 @@
       <TestRunner class="Tests\Unit\SessionsTests" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/SessionsTests.php" method="testUsersCanBookAnySessionAsLongAsItDidntExceedTheInitialLimit" scope="Method" />
       <method v="2" />
     </configuration>
+    <configuration name="SessionsTests.testWhenSessionIsAttendedSessionCreditIsDecreased" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\SessionsTests" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/SessionsTests.php" method="testWhenSessionIsAttendedSessionCreditIsDecreased" scope="Method" />
+      <method v="2" />
+    </configuration>
+    <configuration name="SessionsTests.testWhenUserBooksSessionWithNoSessionCreditItThrowsAnError" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="Tests\Unit\SessionsTests" configuration_file="$PROJECT_DIR$/phpunit.xml" file="$PROJECT_DIR$/tests/Unit/SessionsTests.php" method="testWhenUserBooksSessionWithNoSessionCreditItThrowsAnError" scope="Method" />
+      <method v="2" />
+    </configuration>
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner scope="XML" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="PHPUnit.SessionsTests.testWhenSessionIsAttendedSessionCreditIsDecreased" />
         <item itemvalue="PHPUnit.SessionsTests" />
+        <item itemvalue="PHPUnit.SessionsTests.testWhenUserBooksSessionWithNoSessionCreditItThrowsAnError" />
         <item itemvalue="PHPUnit.SessionsTests.testUsersCanBookAnySessionAsLongAsItDidntExceedTheInitialLimit" />
         <item itemvalue="PHPUnit.SessionsTests.testUserCantAttendASessionBeforeItsFromDateByMoreThanFifteenMinutes" />
-        <item itemvalue="PHPUnit.SessionsTests.testUserCanCancelAsLongAsHeHasExcusesOrItsCancelledInTheSameDay" />
-        <item itemvalue="PHPUnit.SessionsTests.testThatOnEveryWorkingDayAtSevenUntilTenPMUsersWhoDidntMarkThemselvesAttendedInTheirBookedSessionsAreMarkedDidntAttend" />
       </list>
     </recent_temporary>
   </component>
@@ -250,7 +255,11 @@
       <workItem from="1606826213011" duration="4414000" />
       <workItem from="1606832037157" duration="547000" />
       <workItem from="1607693000534" duration="34632000" />
-      <workItem from="1607798260171" duration="22867000" />
+      <workItem from="1607798260171" duration="31254000" />
+      <workItem from="1607981705893" duration="1740000" />
+      <workItem from="1608078547206" duration="4908000" />
+      <workItem from="1608204634356" duration="12000" />
+      <workItem from="1608223053728" duration="4650000" />
     </task>
     <servers />
   </component>
@@ -267,40 +276,49 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="564" y="210" key="#PHP" timestamp="1606763842275">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="564" y="210" key="#PHP/0.0.1792.1120@0.0.1792.1120" timestamp="1606763842275" />
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608227879811">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1608227879811" />
     <state x="661" y="397" key="#com.intellij.tools.ToolEditorDialog" timestamp="1606826392370">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="661" y="397" key="#com.intellij.tools.ToolEditorDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1606826392370" />
-    <state x="634" y="322" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1607799050890">
+    <state x="634" y="322" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1608300491661">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="634" y="322" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1607799050890" />
+    <state x="634" y="322" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1608300491661" />
     <state x="650" y="479" key="ComposerInitDialogKey" timestamp="1606763714607">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="650" y="479" key="ComposerInitDialogKey/0.0.1792.1120@0.0.1792.1120" timestamp="1606763714607" />
-    <state width="1750" height="270" key="GridCell.Tab.0.bottom" timestamp="1607805258911">
+    <state width="1750" height="297" key="GridCell.Tab.0.bottom" timestamp="1608313483550">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="270" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1607805258911" />
-    <state width="1750" height="270" key="GridCell.Tab.0.center" timestamp="1607805258911">
+    <state width="1750" height="601" key="GridCell.Tab.0.bottom/0.0.1792.1040@0.0.1792.1040" timestamp="1608199219215" />
+    <state width="1750" height="297" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1608313483550" />
+    <state width="1750" height="297" key="GridCell.Tab.0.center" timestamp="1608313483549">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="270" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1607805258911" />
-    <state width="1750" height="270" key="GridCell.Tab.0.left" timestamp="1607805258910">
+    <state width="1750" height="601" key="GridCell.Tab.0.center/0.0.1792.1040@0.0.1792.1040" timestamp="1608199218814" />
+    <state width="1750" height="297" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1608313483549" />
+    <state width="1750" height="297" key="GridCell.Tab.0.left" timestamp="1608313483546">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="270" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1607805258910" />
-    <state width="1750" height="270" key="GridCell.Tab.0.right" timestamp="1607805258911">
+    <state width="1750" height="601" key="GridCell.Tab.0.left/0.0.1792.1040@0.0.1792.1040" timestamp="1608199218064" />
+    <state width="1750" height="297" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1608313483546" />
+    <state width="1750" height="297" key="GridCell.Tab.0.right" timestamp="1608313483550">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1750" height="270" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1607805258911" />
+    <state width="1750" height="601" key="GridCell.Tab.0.right/0.0.1792.1040@0.0.1792.1040" timestamp="1608199218915" />
+    <state width="1750" height="297" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1608313483550" />
     <state width="1750" height="392" key="GridCell.Tab.1.bottom" timestamp="1606765525099">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -325,23 +343,26 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="397" y="199" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1606826393365" />
-    <state x="597" y="315" width="748" height="490" key="find.popup" timestamp="1607897556612">
+    <state x="597" y="315" width="775" height="550" key="find.popup" timestamp="1608312579779">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="597" y="315" width="748" height="490" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1607897556612" />
-    <state x="561" y="298" key="run.anything.popup" timestamp="1607809563617">
+    <state x="597" y="291" width="748" height="490" key="find.popup/0.0.1792.1035@0.0.1792.1035" timestamp="1607983094205" />
+    <state x="597" y="315" width="775" height="550" key="find.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1608312579779" />
+    <state x="561" y="298" key="run.anything.popup" timestamp="1608147799075">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="561" y="277" key="run.anything.popup/0.0.1792.1042@0.0.1792.1042" timestamp="1607703232186" />
     <state x="561" y="265" key="run.anything.popup/0.0.1792.1071@0.0.1792.1071" timestamp="1606771558704" />
-    <state x="561" y="298" key="run.anything.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1607809563617" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1607897638662">
+    <state x="561" y="298" key="run.anything.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1608147799075" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1608317472647">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
+    <state x="561" y="232" width="670" height="625" key="search.everywhere.popup/0.0.1792.1035@0.0.1792.1035" timestamp="1607982791747" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1040@0.0.1792.1040" timestamp="1607698716856" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1042@0.0.1792.1042" timestamp="1607802651980" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1042@0.0.1792.1042" timestamp="1608081994195" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1049@0.0.1792.1049" timestamp="1607877751749" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1054@0.0.1792.1054" timestamp="1608242904182" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1071@0.0.1792.1071" timestamp="1606826488794" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1607897638662" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1608317472647" />
   </component>
 </project>

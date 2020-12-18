@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="592.934" height="74" viewBox="0 0 592.934 74">
+<svg class="sm:hidden" xmlns="http://www.w3.org/2000/svg" width="592.934" height="74" viewBox="0 0 592.934 74">
     <g transform="translate(-6152.066 454.066)">
         <g transform="translate(6152.066 -380.066) rotate(-90)">
             <path

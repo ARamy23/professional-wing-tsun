@@ -19,6 +19,8 @@ class Attender
         $pivot = $session->attendees()->find($user->id)->pivot;
         $pivot->attendance_status = 'attended';
         $pivot->save();
+        $user->sessions_credit--;
+        $user->save();
         $user->refresh();
         $session->refresh();
     }

@@ -14,7 +14,10 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
+            RolesAndPermissionsSeeder::class,
             GradesSeeder::class,
+            BranchesSeeder::class,
+            AdminSeeder::class,
             WeekWithSevenDays::class,
         ]);
     }
