@@ -15,6 +15,7 @@ class EditUser extends Component
     public string $excusesAllowance;
     public string $role;
     public string $branch;
+    public string $sessionsCredit;
     public $selectedRoleId;
     public $selectedBranchId;
 
@@ -22,6 +23,7 @@ class EditUser extends Component
         'grade' => 'required|integer|min:1|max:12',
         'certifiedGrade' => 'required|integer|min:1|max:12',
         'excusesAllowance' => 'required|integer',
+        'sessionsCredit' => 'required|integer',
         'role' => 'required|string',
         'branch' => 'required|string',
     ];
@@ -38,8 +40,8 @@ class EditUser extends Component
         $branch = $user->branch;
         $this->branch = $branch->name;
         $this->selectedBranchId = $branch->id;
+        $this->sessionsCredit = $user->sessions_credit;
     }
-
 
     public function render()
     {
@@ -58,6 +60,7 @@ class EditUser extends Component
             'certified_grade_id' => $this->certifiedGrade,
             'branch_id' => $this->selectedBranchId,
             'allowed_excuses' => $this->excusesAllowance,
+            'sessions_credit' => $this->sessionsCredit
         ]);
 
         $newRole = Role::findById($this->selectedRoleId);

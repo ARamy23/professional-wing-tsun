@@ -70,6 +70,7 @@
                     @error('excusesAllowance') @livewire('utils.alert', ['message' => $message]) @enderror
                     @error('role') @livewire('utils.alert', ['message' => $message]) @enderror
                     @error('branch') @livewire('utils.alert', ['message' => $message]) @enderror
+                    @error('sessionsCredit') @livewire('utils.alert', ['message' => $message]) @enderror
 
                     @if(session('message'))
                         @livewire('utils.success', ['message' => session('message')])
@@ -111,6 +112,19 @@
                                         <div class="mt-1 flex rounded-md shadow-sm">
                                             <input type="number" wire:model="excusesAllowance"
                                                    placeholder="Certified Grade (Can't be empty)"
+                                                   class="px-3 py-3 placeholder-gray-400 text-gray-700 relative rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="grid grid-cols-3 gap-6">
+                                    <div class="col-span-3 sm:col-span-2">
+                                        <label for="company_website" class="block text-sm font-medium text-gray-700">
+                                            Sessions Credit
+                                        </label>
+                                        <div class="mt-1 flex rounded-md shadow-sm">
+                                            <input type="number" wire:model="sessionsCredit"
+                                                   placeholder="Sessions Credit (Can't be empty)"
                                                    class="px-3 py-3 placeholder-gray-400 text-gray-700 relative rounded text-sm shadow outline-none focus:outline-none focus:shadow-outline w-full"/>
                                         </div>
                                     </div>

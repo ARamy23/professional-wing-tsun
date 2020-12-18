@@ -24,18 +24,11 @@
   <component name="ChangeListManager">
     <list default="true" id="2a019ed0-12a1-484e-a10f-fecd54b9b506" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Attender.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Attender.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Booker.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Booker.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Branch.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Branch.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Dashboard/Sessions/TimeUntilNextSession.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Dashboard/Sessions/TimeUntilNextSession.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Livewire/Dashboard/Users/EditUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Livewire/Dashboard/Users/EditUser.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/RolesAndPermissionsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/RolesAndPermissionsSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/dashboard.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/dashboard.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/livewire/dashboard/users/users-section.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/dashboard/users/users-section.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tailwind.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Unit/SessionsTests.php" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Unit/SessionsTests.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/dashboard/sessions/time-until-next-session.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/dashboard/sessions/time-until-next-session.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/livewire/dashboard/users/edit-user.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/livewire/dashboard/users/edit-user.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -361,7 +354,7 @@
     <state x="561" y="277" key="run.anything.popup/0.0.1792.1042@0.0.1792.1042" timestamp="1607703232186" />
     <state x="561" y="265" key="run.anything.popup/0.0.1792.1071@0.0.1792.1071" timestamp="1606771558704" />
     <state x="561" y="298" key="run.anything.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1608147799075" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1608314068375">
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1608317472647">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="561" y="232" width="670" height="625" key="search.everywhere.popup/0.0.1792.1035@0.0.1792.1035" timestamp="1607982791747" />
@@ -370,6 +363,6 @@
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1049@0.0.1792.1049" timestamp="1607877751749" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1054@0.0.1792.1054" timestamp="1608242904182" />
     <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1071@0.0.1792.1071" timestamp="1606826488794" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1608314068375" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1608317472647" />
   </component>
 </project>

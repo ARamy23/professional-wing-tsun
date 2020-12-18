@@ -24,7 +24,6 @@ class User extends Authenticatable
     use Notifiable;
     use TwoFactorAuthenticatable;
     use HasRoles;
-//    use Searchable;
 
     /**
      * The attributes that are mass assignable.
@@ -32,7 +31,15 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password', 'grade_id', 'certified_grade_id', 'branch_id', 'title', 'allowed_excuses'
+        'name',
+        'email',
+        'password',
+        'grade_id',
+        'certified_grade_id',
+        'branch_id',
+        'title',
+        'allowed_excuses',
+        'sessions_credit',
     ];
 
     /**
@@ -103,29 +110,4 @@ class User extends Authenticatable
     {
         return $this->can('see users');
     }
-
-//    public function searchableAs()
-//    {
-//        return "users_index";
-//    }
-//
-//    public function toSearchableArray()
-//    {
-//        return $this->toArray();
-//    }
-//
-//    public function getScoutKey()
-//    {
-//        return $this->email;
-//    }
-//
-//    public function getScoutKeyName()
-//    {
-//        return "email";
-//    }
-//
-//    protected function makeAllSearchableUsing($query)
-//    {
-//        return $query->with(['branches', 'grades', 'certifiedGrades', 'sessions']);
-//    }
 }
